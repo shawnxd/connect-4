@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -19,7 +19,130 @@
     <script type="module" crossorigin src="./assets/index.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index.css">
   </head>
+
   <body>
-    <div id="root"></div>
+    <header class="header">
+      <h1 class="header-title">c4 - Connect Four</h1>
+    </header>
+    <section class="section">
+      <div class="section-message"></div>
+      <canvas class="section-canvas"></canvas>
+    </section>
+
+    <dialog class="init-screen">
+      <h1>c4 - Connect Four</h1>
+      <h2>How to play?</h2>
+      <p>Connect Four is a two-player game.</p>
+      <p>
+        Taking turn, each player drops a coloured piece to one of the 7-columns
+        of the board. The piece will then travel down to the next empty row in
+        that column.
+      </p>
+      <p>
+        The first player to form a connection of four pieces horizontally,
+        vertically, or diagonally wins the game. If the board is completely
+        filled but no one has won, the game is a draw.
+      </p>
+      <p>
+        For a more detailed explanation, you can refer to
+        <a href="https://en.wikipedia.org/wiki/Connect_Four" target="_blank"
+          >Connect Four article on Wikipedia</a
+        >.
+      </p>
+      <h2>Game Settings</h2>
+      <form method="dialog" class="game-settings-form">
+        <div class="game-settings-form-section">
+          Playing Mode:
+          <ul class="game-settings-mode-list">
+            <li>
+              <label
+                ><input
+                  class="game-settings-mode-input"
+                  type="radio"
+                  name="mode"
+                  value="offline-ai"
+                  checked
+                  autofocus
+                />
+                Offline: Human player vs AI player</label
+              >
+            </li>
+            <li>
+              <label
+                ><input
+                  class="game-settings-mode-input"
+                  type="radio"
+                  name="mode"
+                  value="offline-human"
+                />
+                Offline: Human player vs human player</label
+              >
+            </li>
+            <li>
+              <label
+                ><input
+                  class="game-settings-mode-input"
+                  type="radio"
+                  name="mode"
+                  value="online-human"
+                />
+                Online: Human player vs human player</label
+              >
+            </li>
+            <li>
+              <label
+                ><input
+                  class="game-settings-mode-input"
+                  type="radio"
+                  name="mode"
+                  value="ai-vs-ai"
+                />
+                AI vs AI (for demonstration)</label
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="game-settings-form-section">
+          <label class="game-settings-player-1-name-label">Player's name:</label>
+          <input
+            class="game-settings-player-1-name-input"
+            type="text"
+            name="player-1-name"
+            value="Player 1"
+            required
+          />
+          <label class="game-settings-player-2-name-label">Player's name:</label>
+          <input
+            class="game-settings-player-2-name-input"
+            type="text"
+            name="player-2-name"
+            value="Player 2"
+            required
+          />
+        </div>
+        <div class="game-settings-form-section">
+          <button type="submit">Start Game</button>
+        </div>
+      </form>
+    </dialog>
+    <div class="statusbox hidden">
+      <div class="statusbox-body">
+        <div class="statusbox-body-connection">...</div>
+        <div class="statusbox-body-game">...</div>
+        <div class="statusbox-body-player">...</div>
+      </div>
+      <button class="statusbox-button-back hidden">Back to Menu</button>
+    </div>
+
+    <div class="message hidden">
+      <div class="message-body">
+        <div class="message-body-content"></div>
+        <button class="message-body-dismiss">OK</button>
+      </div>
+    </div>
+    <footer class="footer">
+      By <a href="https://github.com/shawnxd">Shawn X. Dong</a>. Original game by <a href="http://kenrick95.org">Kenrick95</a>. 
+      Fork this project at <a href="https://github.com/shawnxd/connect-4">GitHub</a>.
+    </footer>
   </body>
 </html>
